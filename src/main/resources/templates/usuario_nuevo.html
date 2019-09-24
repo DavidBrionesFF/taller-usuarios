@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nuevo Usuario</title>
+</head>
+<body>
+<form th:action="@{/usuario/agregar}" th:object="${usuario}" method="post">
+    <input type="text" th:field="*{nombre}"  >
+    <input type="text" th:field="*{apellido}" >
+    <input type="text" th:field="*{telefono}" >
+    <input type="text" th:field="*{contrasena}"  >
+
+    <button th:type="submit">Agregar Usuario</button>
+</form>
+</body>
+</html>

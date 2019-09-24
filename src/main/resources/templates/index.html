@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usuario</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Telefono</td>
+            <td>Fecha Integracion</td>
+            <td>Accion</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="usuario : ${usuarios}">
+            <td th:text="${usuario.getId()}"></td>
+            <td th:text="${usuario.getNombre()}"></td>
+            <td th:text="${usuario.getApellido()}"></td>
+            <td th:text="${usuario.getTelefono()}"></td>
+            <td th:text="${usuario.getFechaIntegracion()}"></td>
+            <td>
+                <form th:action="${'/usuario/borrar/' + usuario.getId()}" method="get">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+</body>
+</html>
